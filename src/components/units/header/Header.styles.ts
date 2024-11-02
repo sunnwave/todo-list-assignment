@@ -11,13 +11,13 @@ align-items: center;
   width:375px;
   padding-left: 16px;
 }
-@media (min-width:744px) and (max-width:1279px){
+@media (min-width:744px) and (max-width:1199px){
   width:744px;
   padding-left: 24px;
 }
-@media (min-width: 1280px){
-  width: 1280px;
-  padding-left: 40px;
+@media (min-width: 1200px){
+  width: 1200px;
+  /* padding-left: 40px; */
 }
 
 

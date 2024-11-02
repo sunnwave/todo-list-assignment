@@ -14,15 +14,15 @@ align-items:center;
   padding-left: 16px;
   padding-right: 16px;
 }
-@media (min-width:744px) and (max-width:1279px){
+@media (min-width:744px) and (max-width:1199px){
   width:744px;
   padding-left: 24px;
   padding-right: 24px;
 }
-@media (min-width: 1280px){
-  width: 1280px;
-  padding-left: 40px;
-  padding-right: 40px;
+@media (min-width: 1200px){
+  width: 1200px;
+  /* padding-left: 40px;
+  padding-right: 40px; */
   
 }
 `
@@ -36,10 +36,10 @@ justify-content:space-between;
 @media screen and (max-width:743px){
   margin-bottom: 24px;
 }
-@media (min-width:744px) and (max-width:1279px){
+@media (min-width:744px) and (max-width:1199px){
   margin-bottom: 40px;
 }
-@media (min-width: 1280px){
+@media (min-width: 1200px){
   margin-bottom: 40px;
 }
 
@@ -67,11 +67,11 @@ align-items:center;
   width:278.88px;
   box-shadow: 1.12px 3.5px #0F172A;
 }
-@media (min-width:744px) and (max-width:1279px){
+@media (min-width:744px) and (max-width:1199px){
   width:515.93px;
   box-shadow: 2.07px 3.5px #0F172A;
 }
-@media (min-width: 1280px){
+@media (min-width: 1200px){
   width: 1011.94px;
   box-shadow: 4.06px 3.5px #0F172A;
 }
@@ -95,12 +95,12 @@ color: #0F172A;
   box-shadow: 1.22px 4px #0F172A;
   
 }
-@media (min-width:744px) and (max-width:1279px){
+@media (min-width:744px) and (max-width:1199px){
   width:158.48px;
   box-shadow: 3.52px 4px #0F172A;
 
 }
-@media (min-width: 1280px){
+@media (min-width: 1200px){
   width: 164.35px;
   box-shadow: 3.65px 4px #0F172A;
 }
@@ -113,10 +113,10 @@ justify-content:space-between;
 @media screen and (max-width:743px){
   flex-direction: column;
 }
-@media (min-width:744px) and (max-width:1279px){
+@media (min-width:744px) and (max-width:1199px){
 flex-direction: column;
 }
-@media (min-width: 1280px){
+@media (min-width: 1200px){
 flex-direction:row;
 }
 `
@@ -130,11 +130,11 @@ flex-direction:column;
   width:344px;
   margin-bottom: 48px;
 }
-@media (min-width:744px) and (max-width:1279px){
+@media (min-width:744px) and (max-width:1199px){
 width:696px;
 margin-bottom: 48px;
 }
-@media (min-width: 1280px){
+@media (min-width: 1200px){
 width:588px;
 }
 `
@@ -214,12 +214,12 @@ width:120px;
 height:120px;
 margin-bottom: 16px;
 }
-@media (min-width:744px) and (max-width:1279px){
+@media (min-width:744px) and (max-width:1199px){
 width:240px;
 height:240px;
 margin-bottom: 24px;
 }
-@media (min-width: 1280px){
+@media (min-width: 1200px){
   width:240px;
   height:240px;
   margin-bottom: 24px;
