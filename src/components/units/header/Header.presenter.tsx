@@ -1,11 +1,17 @@
+import { useState } from "react";
 import * as H from "./Header.styles";
 
-export default function HeaderUI() {
-  // console.log(window.innerWidth);
+interface IHeaderUIProps {
+  onClickLogo: () => void;
+  // width: number;
+}
 
+export default function HeaderUI(props: IHeaderUIProps) {
   return (
     <H.Wrapper>
-      <H.Logo src="/header/logo_large.png" />
+      <H.LogoWrapper>
+        <H.Logo onClick={props.onClickLogo}></H.Logo>
+      </H.LogoWrapper>
     </H.Wrapper>
   );
 }

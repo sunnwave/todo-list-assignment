@@ -21,9 +21,6 @@ align-items:center;
 }
 @media (min-width: 1200px){
   width: 1200px;
-  /* padding-left: 40px;
-  padding-right: 40px; */
-  
 }
 `
 export const AddWrapper=styled.div`
@@ -76,36 +73,29 @@ align-items:center;
   box-shadow: 4.06px 3.5px #0F172A;
 }
 `
-export const AddButton=styled.button`
-height: 52px;
-border-radius: 24px;
-border: 2px;
-border: 2px solid #0F172A;
-background: #E2E8F0;
-
-font-family: NanumSquare;
-font-size: 16px;
-font-weight: 700;
-line-height: 18.16px;
-text-align: center;
-color: #0F172A;
-
+export const AddButton=styled.div`
+height:56px;
 @media screen and (max-width:743px){
-  width:54.78px;
-  box-shadow: 1.22px 4px #0F172A;
+  width: 56px;
+  background-image: url('/list/add_small.png');
+  background-size: 56px 56px;
+
   
 }
 @media (min-width:744px) and (max-width:1199px){
-  width:158.48px;
-  box-shadow: 3.52px 4px #0F172A;
-
+  width:168px;
+  background-image: url('list/add_large.png');
+  background-size: 168px 56px;
+  
+  
 }
 @media (min-width: 1200px){
-  width: 164.35px;
-  box-shadow: 3.65px 4px #0F172A;
+  width:168px;
+  background-image: url('list/add_large.png');
+  background-size: 168px 56px;
 }
-
 `
+
 export const ListContainer=styled.div`
 width:100%;
 display:flex;
@@ -122,7 +112,6 @@ flex-direction:row;
 `
 
 export const ListWrapper=styled.div`
-/* width:100%; */
 display:flex;
 flex-direction:column;
 
@@ -142,7 +131,6 @@ width:588px;
 export const TodoTitle=styled.img`
 width:101px;
 height:36px;
-/* margin-bottom: ; */
 `
 export const List=styled.div`
 width:100%;

@@ -8,10 +8,14 @@ flex-direction: column;
 align-items: center;
 @media screen and (max-width:743px){
   width:375px;
-  padding: 16px;
+  padding: 16px 16px 0px 16px;
 }
 @media (min-width:744px) and (max-width:1199px){
-padding: 24px;
+  width:744px;
+/* padding: 24px 24px 0px 24px; */
+padding-top: 24px;
+padding-right: 24px;
+padding-left: 24px;
 }
 @media (min-width: 1200px){
   width:1200px;

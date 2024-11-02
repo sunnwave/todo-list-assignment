@@ -5,7 +5,7 @@ export default function TodoListUI() {
     <T.Wrapper>
       <T.AddWrapper>
         <T.AddInput placeholder="할 일을 입력해주세요" />
-        <T.AddButton>+ 추가하기</T.AddButton>
+        <T.AddButton></T.AddButton>
       </T.AddWrapper>
       <T.ListContainer>
         <T.ListWrapper className="todo">
