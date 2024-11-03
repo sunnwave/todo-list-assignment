@@ -109,6 +109,11 @@ background-color: #F8FAFC;
 border: 2px dashed #CBD5E1;
 border-radius: 24px;
 position: relative;
+background-image: url('/detail/');
+display:flex;
+flex-direction: column;
+align-items:center;
+justify-content:center;
 
 &>input[type="file"]{
   position: absolute;
@@ -134,35 +139,45 @@ width:696px;
 
 export const ImageInputLabel=styled.label`
 cursor: pointer;
+border:none;
+`
+
+export const ImageEditIcon=styled.img`
 width:64px;
 height:64px;
-border: 1px solid black;
-background: #E2E8F0;
+cursor: pointer;
 border-radius: 50%;
-background-image:url()
+position:absolute;
+bottom:16px;
+right:16px;
+&.none{
+  background: #E2E8F0;
+  border:none;
+  background-image:url('/detail/upload_button.png');
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+&.uploaded{
+  border: 2px solid #0F172A;
+  background: #0F172A80;
+  background-image:url('/detail/edit_icon.png');
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
 `
 export const ImageInput=styled.input`
 `
 
-export const ImageIcon=styled.img`
-width:64px;
-height:64px;
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%, -50%);
-`
-export const UploadButton=styled.button`
-width:64px;
-height:64px;
-border: none;
-background: #E2E8F0;
-border-radius: 50%;
-`
-
-export const UploadIcon=styled.img`
-width:24px;
-height:24px;
+export const PreImg=styled.img`
+width:100%;
+height:100%;
+border:none;
+&.none{
+  width:64px;
+  height: 64px;
+}
 `
 
 export const Memo=styled.div`
@@ -253,7 +268,6 @@ margin-top: 24px;
 @media (min-width: 1200px){
   justify-content: flex-end;
 }
-
 `
 export const Button=styled.button`
 width:164.35px;
@@ -277,13 +291,11 @@ cursor: pointer;
 &.update{
   background: #E2E8F0;
   color: #0F172A;
-
 }
 
 &.delete{
   background: #F43F5E;
   color: #FFFFFF;
-
 }
 
 @media screen and (max-width:743px){
@@ -307,14 +319,4 @@ export const ButtonIcon=styled.img`
 width:16px;
 height:16px;
 margin-right: 4px;
-@media screen and (max-width:743px){
-  
-}
-@media (min-width:744px) and (max-width:1199px){
-
-}
-@media (min-width: 1200px){
-  
-}
-
 `

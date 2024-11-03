@@ -21,14 +21,21 @@ export default function TodoDetailUI(props: ITodoDetailUIProps) {
       </D.List>
       <D.ContentsWrapper>
         <D.Upload>
-          <D.ImageInputLabel htmlFor="upload_img">여기여기</D.ImageInputLabel>
+          <D.ImageInputLabel htmlFor="upload_img">
+            <D.ImageEditIcon
+              className={props.isImageUploaded ? "uploaded" : "none"}
+            />
+          </D.ImageInputLabel>
           <D.ImageInput
             type="file"
             accept="image/*"
             onChange={props.onChangeFile}
             id="upload_img"
           />
-          <img src={props.imageUrl?.toString()} className="preimg" />
+          <D.PreImg
+            src={props.imageUrl?.toString()}
+            className={props.isImageUploaded ? "uploaded" : "none"}
+          />
         </D.Upload>
         <D.Memo>
           <D.MemoLabel>Memo</D.MemoLabel>

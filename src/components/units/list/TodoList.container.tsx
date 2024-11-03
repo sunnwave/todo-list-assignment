@@ -17,11 +17,6 @@ export default function TodoList() {
   const [addTodo, setAddTodo] = useState("");
   const router = useRouter();
 
-  // const fetchLists = async () => {
-  //   const result = await axios.get(BASE_URL);
-  //   setTotalLists(result.data);
-  // };
-
   useEffect(() => {
     axios.get(BASE_URL).then((res) => {
       setTotalLists(res.data);
@@ -65,31 +60,16 @@ export default function TodoList() {
     }
   };
 
-  const onClickTodoToDone = (event: MouseEvent<HTMLDivElement>) => {
-    const { id } = event.target as HTMLDivElement;
+  const onChangeCheck = (event: ChangeEvent<HTMLInputElement>, key: string) => {
+    const { id } = event.target as HTMLInputElement;
+    console.log(id);
     axios
-      .patch(BASE_URL + `/${id}`, {
-        isCompleted: true,
+      .patch(BASE_URL + `/${key}`, {
+        isCompleted: event.target.checked,
       })
-      .then((res) => location.reload());
-  };
-
-  const onChangeTodoToDone = (event: MouseEvent<HTMLInputElement>) => {
-    const { id } = event.target as HTMLDivElement;
-    axios
-      .patch(BASE_URL + `/${id}`, {
-        isCompleted: true,
-      })
-      .then((res) => location.reload());
-  };
-
-  const onClickDoneToTodo = (event: MouseEvent<HTMLDivElement>) => {
-    const { id } = event.target as HTMLDivElement;
-    axios
-      .patch(BASE_URL + `/${id}`, {
-        isCompleted: false,
-      })
-      .then((res) => location.reload());
+      .then((res) => {
+        location.reload();
+      });
   };
 
   const onClickList = (
@@ -99,16 +79,30 @@ export default function TodoList() {
     router.push(`/items/${id}`);
   };
 
+  const onClickCheck = (
+    event: MouseEvent<HTMLDivElement>,
+    isCompleted: boolean
+  ) => {
+    const { id } = event.target as HTMLDivElement;
+    console.log(isCompleted);
+    axios
+      .patch(BASE_URL + `/${id}`, {
+        isCompleted: !isCompleted,
+      })
+      .then((res) => {
+        location.reload();
+      });
+  };
+
   return (
     <TodoListUI
       totalLists={totalLists}
       onChangeAddTodo={onChangeAddTodo}
       onKeyDownAddTodo={onKeyDownAddTodo}
       onClickAddButton={onClickAddButton}
-      onClickTodoToDone={onClickTodoToDone}
-      onClickDoneToTodo={onClickDoneToTodo}
       onClickList={onClickList}
-      onChangeTodoToDone={onChangeTodoToDone}
+      onChangeCheck={onChangeCheck}
+      onClickCheck={onClickCheck}
     />
   );
 }

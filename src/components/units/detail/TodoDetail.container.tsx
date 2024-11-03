@@ -13,8 +13,9 @@ export default function TodoDetail() {
   const [name, setName] = useState<string>();
   const [memo, setMemo] = useState<string>();
   const [imageUrl, setImageUrl] = useState<string | ArrayBuffer | null>(
-    `/detail/img_icon.png`
+    "/detail/img_icon.png"
   );
+  const [isImageUploaded, setIsImageUploaded] = useState<boolean>(false);
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -46,15 +47,16 @@ export default function TodoDetail() {
       if (!checkEng.test(file?.name.split(".")[0])) {
         alert("파일 이름이 영어인 이미지만 업로드 가능합니다");
       }
-      if (file.size > maxSize) {
+      if (file?.size > maxSize) {
         alert("5MB 이하의 이미지만 업로드 가능합니다");
       }
-      if (checkEng.test(file?.name.split(".")[0]) && !(file.size > maxSize)) {
+      if (checkEng.test(file?.name.split(".")[0]) && !(file?.size > maxSize)) {
         const reader = new FileReader();
         reader.readAsDataURL(file);
 
         reader.onload = () => {
           setImageUrl(reader.result);
+          setIsImageUploaded(true);
         };
       }
     }
@@ -101,6 +103,7 @@ export default function TodoDetail() {
       onChangeFile={onChangeFile}
       onChangeMemo={onChangeMemo}
       imageUrl={imageUrl}
+      isImageUploaded={isImageUploaded}
       onClickEdit={onClickEdit}
     />
   );

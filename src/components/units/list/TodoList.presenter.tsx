@@ -47,7 +47,7 @@ export default function TodoListUI(props: ITodoListUIProps) {
                 <T.List className="todo" id={String(el.id)}>
                   <T.TodoCheck
                     className="todo"
-                    onClick={props.onClickTodoToDone}
+                    onClick={(e) => props.onClickCheck(e, el.isCompleted)}
                     id={String(el.id)}
                   ></T.TodoCheck>
                   <T.Label
@@ -57,15 +57,6 @@ export default function TodoListUI(props: ITodoListUIProps) {
                   >
                     {el.name}
                   </T.Label>
-                  {/* <T.TodoCheck
-                    type="checkbox"
-                    id={String(el.id)}
-                    defaultChecked={el.isCompleted}
-                    onChange={props.onChangeTodoToDone}
-                  />
-                  <T.LabelForCheckbox htmlFor={String(el.id)}>
-                    {el.name}
-                  </T.LabelForCheckbox> */}
                 </T.List>
               ))}
             </div>
@@ -90,7 +81,7 @@ export default function TodoListUI(props: ITodoListUIProps) {
                 <T.List className="done" id={String(el.id)}>
                   <T.TodoCheck
                     className="done"
-                    onClick={props.onClickDoneToTodo}
+                    onClick={(e) => props.onClickCheck(e, el.isCompleted)}
                     id={String(el.id)}
                   ></T.TodoCheck>
                   <T.Label

@@ -140,7 +140,6 @@ flex-direction: row;
 align-items:center;
 
 margin-top: 16px;
-
 padding:9px 12px 9px 12px;
 box-sizing: border-box;
 
@@ -152,28 +151,7 @@ cursor: pointer;
 &.done{
   background: #EDE9FE;
 }
-
 `
-// export const TodoCheck=styled.input`
-// display:none;
-
-// :checked+label{
-//   background-image: url('/detail/done_check.png');
-//   background-size: 32px 32px;
-//   border:none;
-// }
-// `
-
-// export const LabelForCheckbox=styled.label`
-//   width:32px;
-//   height:32px;
-//   margin-right: 16px;
-//   background: #FEFCE8;
-//   border: 2px solid #0F172A;
-//   border-radius: 50%;
-//   cursor: pointer;
-// `
-
 export const TodoCheck=styled.div`
 width: 32px;
 height: 32px;
@@ -205,7 +183,7 @@ cursor: pointer;
 `
 
 export const Label=styled.label`
-width:100%;
+/* width:100%; */
 height:18px;
 font-family: NanumSquare;
 font-size: 16px;
@@ -218,7 +196,6 @@ color: #1E293B;
   text-decoration: line-through;
 }
 `
-
 export const DoneTitle=styled.img`
 width:97px;
 height:36px;
