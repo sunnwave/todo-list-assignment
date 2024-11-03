@@ -41,7 +41,7 @@ justify-content:space-between;
 }
 
 `
-export const AddInput=styled.input`
+export const AddTodo=styled.input`
 height: 52.5px;
 border-radius: 24px;
 background: #F1F5F9;
@@ -75,24 +75,22 @@ align-items:center;
 `
 export const AddButton=styled.div`
 height:56px;
+cursor: pointer;
 @media screen and (max-width:743px){
   width: 56px;
   background-image: url('/list/add_small.png');
   background-size: 56px 56px;
-
-  
+  &.empty{
+    background-image: url('/list/add_small_purple.png');
+  }
 }
-@media (min-width:744px) and (max-width:1199px){
+@media (min-width:744px){
   width:168px;
   background-image: url('list/add_large.png');
   background-size: 168px 56px;
-  
-  
-}
-@media (min-width: 1200px){
-  width:168px;
-  background-image: url('list/add_large.png');
-  background-size: 168px 56px;
+  &.empty{
+    background-image: url('list/add_large_purple.png')
+  }
 }
 `
 
@@ -146,6 +144,7 @@ margin-top: 16px;
 padding:9px 12px 9px 12px;
 box-sizing: border-box;
 
+cursor: pointer;
 &.todo{
   background: #FFFFFF;
 }
@@ -155,25 +154,64 @@ box-sizing: border-box;
 }
 
 `
+// export const TodoCheck=styled.input`
+// display:none;
+
+// :checked+label{
+//   background-image: url('/detail/done_check.png');
+//   background-size: 32px 32px;
+//   border:none;
+// }
+// `
+
+// export const LabelForCheckbox=styled.label`
+//   width:32px;
+//   height:32px;
+//   margin-right: 16px;
+//   background: #FEFCE8;
+//   border: 2px solid #0F172A;
+//   border-radius: 50%;
+//   cursor: pointer;
+// `
+
 export const TodoCheck=styled.div`
 width: 32px;
 height: 32px;
-background: #FEFCE8;
-border: 2px solid #0F172A;
-border-radius: 50%;
 margin-right:16px;
-:hover{
-  background-color: #7C3AED;
-;
+
+cursor: pointer;
+&.todo{
+  background: #FEFCE8;
+  border: 2px solid #0F172A;
+  border-radius: 50%;
+  :hover{
+    border:none;
+    background-image: url('/list/done_check.png');
+    background-size: 32px 32px;
+  }
+}
+
+&.done{
+  background-image: url('/list/done_check.png');
+  background-size: 32px 32px;
+  :hover{
+    background-image: none;
+    background: #FEFCE8;
+  border: 2px solid #0F172A;
+  border-radius: 50%;
+  }
+
 }
 `
+
 export const Label=styled.label`
+width:100%;
 height:18px;
 font-family: NanumSquare;
 font-size: 16px;
 font-weight: 400;
 line-height: 18.16px;
-text-align: center;
+text-align: start;
 color: #1E293B;
 
 &.done{
