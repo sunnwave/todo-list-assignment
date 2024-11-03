@@ -28,5 +28,5 @@
     "@types/react": "17.0.2",
     "typescript": "^5.6.2"
   },
-  "homepage": "https://sunnwave.github.io/pages/"
+  "homepage": "https://sunnwave.github.io/todo-list-assignment/"
 }
