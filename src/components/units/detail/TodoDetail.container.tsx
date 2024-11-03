@@ -15,7 +15,9 @@ export default function TodoDetail() {
   const [imageUrl, setImageUrl] = useState<string | ArrayBuffer | null>(
     "/detail/img_icon.png"
   );
+  const [localImg, setLocalImg] = useState<File>();
   const [isImageUploaded, setIsImageUploaded] = useState<boolean>(false);
+  const [responseUrl, setResponseUrl] = useState<string>();
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -43,7 +45,6 @@ export default function TodoDetail() {
 
     if (event.target.files) {
       const file = event.target.files[0];
-
       if (!checkEng.test(file?.name.split(".")[0])) {
         alert("파일 이름이 영어인 이미지만 업로드 가능합니다");
       }
@@ -51,6 +52,7 @@ export default function TodoDetail() {
         alert("5MB 이하의 이미지만 업로드 가능합니다");
       }
       if (checkEng.test(file?.name.split(".")[0]) && !(file?.size > maxSize)) {
+        setLocalImg(file);
         const reader = new FileReader();
         reader.readAsDataURL(file);
 
@@ -73,8 +75,32 @@ export default function TodoDetail() {
 
   const handleEditButton = () => {};
 
+  const uploadImg = () => {
+    if (localImg) {
+      const form = new FormData();
+      form.append("image", localImg);
+
+      const response = axios
+        .post(
+          "https://assignment-todolist-api.vercel.app/api/sun/images/upload",
+          form,
+          {
+            headers: {
+              accept: "application/json",
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data.url);
+          setResponseUrl(res.data.url);
+        });
+    }
+  };
+
   const onClickEdit = (event: MouseEvent<HTMLButtonElement>) => {
     console.log("수정버튼 클릭");
+
     interface Ivariables {
       name?: string;
       memo?: string;
@@ -82,10 +108,32 @@ export default function TodoDetail() {
       isCompleted?: boolean;
     }
     const variables: Ivariables = {};
+    uploadImg();
+    // if (localImg) {
+    //   const form = new FormData();
+    //   form.append("image", localImg);
+
+    //   const response = axios
+    //     .post(
+    //       "https://assignment-todolist-api.vercel.app/api/sun/images/upload",
+    //       form,
+    //       {
+    //         headers: {
+    //           // ...form.getHeaders(),
+    //           accept: "application/json",
+    //           "Content-Type": "multipart/form-data",
+    //         },
+    //       }
+    //     )
+    //     .then((res) => {
+    //       console.log(res.data.url);
+    //       setResponseUrl(res.data.url);
+    //     });
+    // }
 
     if (name) variables.name = name;
     if (memo) variables.memo = memo;
-    if (imageUrl) variables.imageUrl = String(imageUrl);
+    if (responseUrl) variables.imageUrl = responseUrl;
     if (checkChanged) variables.isCompleted = isCompleted;
 
     axios.patch(BASE_URL + `/${router.query.itemId}`, variables).then((res) => {

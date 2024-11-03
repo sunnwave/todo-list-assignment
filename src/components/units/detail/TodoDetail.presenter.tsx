@@ -34,6 +34,7 @@ export default function TodoDetailUI(props: ITodoDetailUIProps) {
           />
           <D.PreImg
             src={props.imageUrl?.toString()}
+            // src="https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/TodoList/sun/1730641568355/btn.png"
             className={props.isImageUploaded ? "uploaded" : "none"}
           />
         </D.Upload>
