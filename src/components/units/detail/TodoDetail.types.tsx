@@ -11,7 +11,7 @@ export interface IItem {
 
 export interface ITodoDetailUIProps {
   item?: IItem;
-  onChangeCheck: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClickCheck: (event: MouseEvent<HTMLInputElement>) => void;
   onChangeNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;

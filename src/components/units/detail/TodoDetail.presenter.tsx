@@ -1,5 +1,6 @@
 import * as D from "./TodoDetail.styles";
 import { ITodoDetailUIProps } from "./TodoDetail.types";
+import { prefix } from "../../../../next.config.mjs";
 
 export default function TodoDetailUI(props: ITodoDetailUIProps) {
   return (
@@ -10,7 +11,7 @@ export default function TodoDetailUI(props: ITodoDetailUIProps) {
           id="check"
           defaultChecked={props.item?.isCompleted}
           contentEditable
-          onChange={props.onChangeCheck}
+          onClick={props.onClickCheck}
         />
         <D.LabelForCheckbox htmlFor="check"></D.LabelForCheckbox>
         <D.NameInput
@@ -48,11 +49,11 @@ export default function TodoDetailUI(props: ITodoDetailUIProps) {
       </D.ContentsWrapper>
       <D.ButtonWrapper>
         <D.Button className="update" onClick={props.onClickEdit}>
-          <D.ButtonIcon src="/detail/check_icon.png" />
+          <D.ButtonIcon src="/todo-list-assignment/detail/check_icon.png" />
           수정 완료
         </D.Button>
         <D.Button className="delete" onClick={props.onClickDelete}>
-          <D.ButtonIcon src="/detail/delete_icon.png" />
+          <D.ButtonIcon src="/todo-list-assignment/detail/delete_icon.png" />
           삭제하기
         </D.Button>
       </D.ButtonWrapper>

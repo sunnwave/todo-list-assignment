@@ -30,11 +30,11 @@ export default function TodoListUI(props: ITodoListUIProps) {
       {/* 할 일, 한 일 목록을 보여주는 부분 */}
       <T.ListContainer>
         <T.ListWrapper className="todo">
-          <T.TodoTitle src="/list/todo.png" />
+          <T.TodoTitle src="/todo-list-assignment/list/todo.png" />
           {/* 할 일 목록이 비어있을 때 */}
           {todos?.length === 0 ? (
             <T.EmptyWrapper>
-              <T.EmptyImg src="/list/todo_char.png" />
+              <T.EmptyImg src="/todo-list-assignment/list/todo_char.png" />
               <T.EmptyLabel>
                 할 일이 없어요. <br />
                 TODO를 새롭게 추가해주세요!
@@ -63,11 +63,11 @@ export default function TodoListUI(props: ITodoListUIProps) {
           )}
         </T.ListWrapper>
         <T.ListWrapper className="done">
-          <T.DoneTitle src="/list/done.png" />
+          <T.DoneTitle src="/todo-list-assignment/list/done.png" />
           {dones?.length === 0 ? (
             // 한 일 목록이 비었을 때
             <T.EmptyWrapper>
-              <T.EmptyImg src="/list/done_char.png" />
+              <T.EmptyImg src="/todo-list-assignment/list/done_char.png" />
               <T.EmptyLabel>
                 아직 다 한 일이 없어요.
                 <br />

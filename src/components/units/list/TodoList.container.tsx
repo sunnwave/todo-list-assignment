@@ -32,7 +32,6 @@ export default function TodoList() {
       if (!addTodo) {
         alert("입력창에 할 일을 입력해주세요");
       } else {
-        console.log("엔터 입력됨");
         const data = {
           name: addTodo,
         };
@@ -49,7 +48,6 @@ export default function TodoList() {
     if (!addTodo) {
       alert("입력창에 할 일을 입력해주세요");
     } else {
-      console.log("추가하기 클릭됨");
       const data = {
         name: addTodo,
       };
@@ -62,7 +60,6 @@ export default function TodoList() {
 
   const onChangeCheck = (event: ChangeEvent<HTMLInputElement>, key: string) => {
     const { id } = event.target as HTMLInputElement;
-    console.log(id);
     axios
       .patch(BASE_URL + `/${key}`, {
         isCompleted: event.target.checked,
@@ -84,7 +81,6 @@ export default function TodoList() {
     isCompleted: boolean
   ) => {
     const { id } = event.target as HTMLDivElement;
-    console.log(isCompleted);
     axios
       .patch(BASE_URL + `/${id}`, {
         isCompleted: !isCompleted,

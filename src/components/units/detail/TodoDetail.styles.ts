@@ -52,7 +52,7 @@ export const TodoCheck=styled.input`
 display:none;
 
 :checked+label{
-  background-image: url('/detail/done_check.png');
+  background-image: url('/todo-list-assignment/detail/done_check.png');
   background-size: 32px 32px;
   border:none;
 }
@@ -109,7 +109,6 @@ background-color: #F8FAFC;
 border: 2px dashed #CBD5E1;
 border-radius: 24px;
 position: relative;
-background-image: url('/detail/');
 display:flex;
 flex-direction: column;
 align-items:center;
@@ -153,7 +152,7 @@ right:16px;
 &.none{
   background: #E2E8F0;
   border:none;
-  background-image:url('/detail/upload_button.png');
+  background-image:url('/todo-list-assignment/detail/upload_button.png');
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -161,7 +160,7 @@ right:16px;
 &.uploaded{
   border: 2px solid #0F172A;
   background: #0F172A80;
-  background-image:url('/detail/edit_icon.png');
+  background-image:url('/todo-list-assignment/detail/edit_icon.png');
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -182,7 +181,7 @@ border:none;
 
 export const Memo=styled.div`
 height:311px;
-background-image: url('/detail/memo.png');
+background-image: url('/todo-list-assignment/detail/memo.png');
 display:flex;
 flex-direction: column;
 align-items:center;
@@ -242,14 +241,6 @@ resize:none;
 ::-webkit-scrollbar-track{
   background: transparent;
 }
-@media screen and (max-width:743px){
-}
-@media (min-width:744px) and (max-width:1199px){
-}
-@media (min-width: 1200px){
-  
-}
-
 `
 
 export const ButtonWrapper=styled.div`

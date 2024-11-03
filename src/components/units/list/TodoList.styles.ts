@@ -78,18 +78,18 @@ height:56px;
 cursor: pointer;
 @media screen and (max-width:743px){
   width: 56px;
-  background-image: url('/list/add_small.png');
+  background-image: url('/todo-list-assignment/list/add_small.png');
   background-size: 56px 56px;
   &.empty{
-    background-image: url('/list/add_small_purple.png');
+    background-image: url('/todo-list-assignment/list/add_small_purple.png');
   }
 }
 @media (min-width:744px){
   width:168px;
-  background-image: url('list/add_large.png');
+  background-image: url('/todo-list-assignment/list/add_large.png');
   background-size: 168px 56px;
   &.empty{
-    background-image: url('list/add_large_purple.png')
+    background-image: url('/todo-list-assignment/list/add_large_purple.png')
   }
 }
 `
@@ -143,7 +143,6 @@ margin-top: 16px;
 padding:9px 12px 9px 12px;
 box-sizing: border-box;
 
-cursor: pointer;
 &.todo{
   background: #FFFFFF;
 }
@@ -164,13 +163,13 @@ cursor: pointer;
   border-radius: 50%;
   :hover{
     border:none;
-    background-image: url('/list/done_check.png');
+    background-image: url('/todo-list-assignment/list/done_check.png');
     background-size: 32px 32px;
   }
 }
 
 &.done{
-  background-image: url('/list/done_check.png');
+  background-image: url('/todo-list-assignment/list/done_check.png');
   background-size: 32px 32px;
   :hover{
     background-image: none;
@@ -191,7 +190,7 @@ font-weight: 400;
 line-height: 18.16px;
 text-align: start;
 color: #1E293B;
-
+cursor: pointer;
 &.done{
   text-decoration: line-through;
 }

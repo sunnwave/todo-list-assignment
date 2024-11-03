@@ -19,6 +19,4 @@ export interface ITodoListUIProps {
     event: MouseEvent<HTMLDivElement>,
     isCompleted: boolean
   ) => void;
-  // onClickTodoToDone: (event: MouseEvent<HTMLDivElement>) => void;
-  // onClickDoneToTodo: (event: MouseEvent<HTMLDivElement>) => void;
 }

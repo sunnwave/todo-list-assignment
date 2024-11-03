@@ -48,14 +48,14 @@ cursor: pointer;
 @media (max-width:743px){
   width:71px;
   height: 40px;
-  background-image: url('/header/logo_small.png');
+  background-image: url('/todo-list-assignment/header/logo_small.png');
   background-size: 71px 40px;
 
 }
 @media (min-width:744px){
   width:151px;
   height:40px;
-  background-image: url('/header/logo_large.png');
+  background-image: url('/todo-list-assignment/header/logo_large.png');
   background-size: 151px 40px;
 }
 `

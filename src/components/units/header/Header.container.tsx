@@ -9,7 +9,7 @@ export default function Header() {
 
   const onClickLogo = () => {
     console.log("Logo Clicked");
-    router.push(`/`);
+    router.push(`/todo-list-assignment/`);
   };
 
   // const handleResize = () => {

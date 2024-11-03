@@ -13,7 +13,7 @@ export default function TodoDetail() {
   const [name, setName] = useState<string>();
   const [memo, setMemo] = useState<string>();
   const [imageUrl, setImageUrl] = useState<string | ArrayBuffer | null>(
-    "/detail/img_icon.png"
+    "/todo-list-assignment/detail/img_icon.png"
   );
   const [localImg, setLocalImg] = useState<File>();
   const [isImageUploaded, setIsImageUploaded] = useState<boolean>(false);
@@ -24,15 +24,13 @@ export default function TodoDetail() {
 
     axios.get(BASE_URL + `/${router.query.itemId}`).then((res) => {
       setItem(res.data);
-      console.log(res.data);
     });
   }, [router.isReady]);
 
-  const onChangeCheck = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log("체크 클릭됨");
-    setIsCompleted(event.target.checked);
+  const onClickCheck = (event: MouseEvent<HTMLInputElement>) => {
+    const { checked } = event.target as HTMLInputElement;
+    setIsCompleted(checked);
     setCheckChanged(true);
-    console.log(event.target.checked);
   };
 
   const onChangeNameInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +67,7 @@ export default function TodoDetail() {
   const onClickDelete = (event: MouseEvent<HTMLButtonElement>) => {
     axios.delete(BASE_URL + `/${router.query.itemId}`).then((res) => {
       alert("삭제되었습니다.");
-      router.push("/");
+      router.push("/todo-list-assignment/");
     });
   };
 
@@ -92,15 +90,12 @@ export default function TodoDetail() {
           }
         )
         .then((res) => {
-          console.log(res.data.url);
           setResponseUrl(res.data.url);
         });
     }
   };
 
   const onClickEdit = (event: MouseEvent<HTMLButtonElement>) => {
-    console.log("수정버튼 클릭");
-
     interface Ivariables {
       name?: string;
       memo?: string;
@@ -137,7 +132,6 @@ export default function TodoDetail() {
     if (checkChanged) variables.isCompleted = isCompleted;
 
     axios.patch(BASE_URL + `/${router.query.itemId}`, variables).then((res) => {
-      console.log("수정 완료");
       alert("수정되었습니다.");
       location.reload();
     });
@@ -145,7 +139,7 @@ export default function TodoDetail() {
   return (
     <TodoDetailUI
       item={item}
-      onChangeCheck={onChangeCheck}
+      onClickCheck={onClickCheck}
       onClickDelete={onClickDelete}
       onChangeNameInput={onChangeNameInput}
       onChangeFile={onChangeFile}
