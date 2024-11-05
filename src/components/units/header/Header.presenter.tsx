@@ -1,10 +1,5 @@
-import { useState } from "react";
 import * as H from "./Header.styles";
-
-interface IHeaderUIProps {
-  onClickLogo: () => void;
-  // width: number;
-}
+import { IHeaderUIProps } from "../../../commons/types/types";
 
 export default function HeaderUI(props: IHeaderUIProps) {
   return (

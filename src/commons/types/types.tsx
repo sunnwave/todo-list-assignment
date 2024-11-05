@@ -1,90 +1,29 @@
 import { ChangeEvent, KeyboardEvent, MouseEvent } from "react";
 
-export interface Ilist {
-  name: string;
-  id: number;
-  isCompleted: boolean;
+export interface IHeaderUIProps {
+  onClickLogo: () => void;
 }
 
 export interface IItem {
   id: number;
-  tenantId: string;
+  tenantId?: string;
   name: string;
   memo?: string;
   imageUrl?: string;
   isCompleted: boolean;
 }
 
-export interface Ivariables {
-  name?: string;
-  memo?: string;
-  imageUrl?: string;
-  isCompleted?: boolean;
-}
-
-export interface IAddTodoProps {
-  totalLists: Ilist[];
-}
-
-export interface IAddTodoUIProps {
-  totalLists: Ilist[];
-  onChangeAddTodo: (event: ChangeEvent<HTMLInputElement>) => void;
-  onKeyDownAddTodo: (event: KeyboardEvent<HTMLInputElement>) => void;
-  onClickAddButton: (event: MouseEvent<HTMLDivElement>) => void;
-}
-
-export interface ITodoDetailUIProps {
-  item?: IItem;
-  onClickCheck: (event: MouseEvent<HTMLInputElement>) => void;
-  onChangeNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClickDelete: (event: MouseEvent<HTMLButtonElement>) => void;
-  onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  onClickEdit: (event: MouseEvent<HTMLButtonElement>) => void;
-  PreImageUrl: string | ArrayBuffer | null;
-  isNewImageUploaded: boolean;
-  isTodoChanged: boolean;
-}
-
+//////Todo List///////
 export interface ITodoListUIProps {
-  totalLists: Ilist[];
-  // onChangeAddTodo: (event: ChangeEvent<HTMLInputElement>) => void;
-  // onKeyDownAddTodo: (event: KeyboardEvent<HTMLInputElement>) => void;
-  // onClickAddButton: (event: MouseEvent<HTMLDivElement>) => void;
-  // onClickList: (
-  //   event: MouseEvent<HTMLDivElement> | MouseEvent<HTMLLabelElement>
-  // ) => void;
-  // onChangeCheck: (event: ChangeEvent<HTMLInputElement>, key: string) => void;
-  // onClickCheck: (
-  //   event: MouseEvent<HTMLDivElement>,
-  //   isCompleted: boolean
-  // ) => void;
+  totalLists: IItem[];
 }
 
-export interface ITodoNameProps {
-  item?: IItem;
-}
-
-export interface ITodoNameUIProps {
-  item?: IItem;
-  onClickCheck: (event: MouseEvent<HTMLInputElement>) => void;
-  onChangeNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export interface IUploadImageUIProps {
-  item?: IItem;
-  onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
-  PreImageUrl: string | ArrayBuffer | null;
-  isNewImageUploaded: boolean;
-}
-
-export interface IMemoUIProps {
-  item?: IItem;
-  onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+export interface IEmptyUIProps {
+  isCompleted: boolean;
 }
 
 export interface IItemUIProps {
-  item: Ilist;
+  item: IItem;
   onClickCheck: (
     event: MouseEvent<HTMLDivElement>,
     isCompleted: boolean
@@ -95,9 +34,56 @@ export interface IItemUIProps {
 }
 
 export interface IItemProps {
-  item: Ilist;
+  item: IItem;
 }
 
-export interface IEmptyUIProps {
-  isCompleted: boolean;
+////Add Todo///////
+export interface IAddTodoProps {
+  totalLists: IItem[];
+}
+
+export interface IAddTodoUIProps {
+  totalLists: IItem[];
+  onChangeAddTodo: (event: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDownAddTodo: (event: KeyboardEvent<HTMLInputElement>) => void;
+  onClickAddButton: (event: MouseEvent<HTMLDivElement>) => void;
+}
+
+////////Todo Detail
+export interface ITodoDetailUIProps {
+  item?: IItem;
+  onClickCheck: (event: MouseEvent<HTMLInputElement>) => void;
+  onChangeNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClickDelete: (event: MouseEvent<HTMLButtonElement>) => void;
+  onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onClickEdit: (event: MouseEvent<HTMLButtonElement>) => void;
+  PreImageUrl: string | ArrayBuffer | null;
+  localImg: File | undefined;
+  isTodoChanged: boolean;
+}
+
+export interface ITodoNameUIProps {
+  item: IItem | undefined;
+  onClickCheck: (event: MouseEvent<HTMLInputElement>) => void;
+  onChangeNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface IUploadImageUIProps {
+  item: IItem | undefined;
+  onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
+  PreImageUrl: string | ArrayBuffer | null;
+  localImg: File | undefined;
+}
+
+export interface IMemoUIProps {
+  item: IItem | undefined;
+  onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+export interface Ivariables {
+  name?: string;
+  memo?: string;
+  imageUrl?: string;
+  isCompleted?: boolean;
 }

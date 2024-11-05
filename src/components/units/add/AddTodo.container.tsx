@@ -25,11 +25,15 @@ export default function AddTodo(props: IAddTodoProps) {
         const data = {
           name: addTodo,
         };
-        axios.post(BASE_URL, data).then((res) => {
-          event.stopPropagation();
-          alert("새로운 할 일이 등록되었습니다.");
-          location.reload();
-        });
+        try {
+          axios.post(BASE_URL, data).then((res) => {
+            event.stopPropagation();
+            alert("새로운 할 일이 등록되었습니다.");
+            location.reload();
+          });
+        } catch (err) {
+          console.error(err);
+        }
       }
     }
   };
@@ -42,10 +46,14 @@ export default function AddTodo(props: IAddTodoProps) {
       const data = {
         name: addTodo,
       };
-      axios.post(BASE_URL, data).then((res) => {
-        alert("새로운 할 일이 등록되었습니다.");
-        location.reload();
-      });
+      try {
+        axios.post(BASE_URL, data).then((res) => {
+          alert("새로운 할 일이 등록되었습니다.");
+          location.reload();
+        });
+      } catch (err) {
+        console.error(err);
+      }
     }
   };
   return (

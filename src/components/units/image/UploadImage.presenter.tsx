@@ -1,16 +1,13 @@
 import { IUploadImageUIProps } from "../../../commons/types/types";
-import { ITodoDetailUIProps } from "../detail/TodoDetail.types";
 import * as U from "./UploadImage.styles";
 
 export default function UploadImageUI(props: IUploadImageUIProps) {
   return (
-    <U.Upload>
+    <U.UploadWrapper>
       <U.ImageInputLabel htmlFor="upload_img">
         <U.ImageEditIcon
           className={
-            props.isNewImageUploaded || props.item?.imageUrl
-              ? "uploaded"
-              : "none"
+            props.localImg || props.item?.imageUrl ? "uploaded" : "none"
           }
         />
       </U.ImageInputLabel>
@@ -22,10 +19,8 @@ export default function UploadImageUI(props: IUploadImageUIProps) {
       />
       <U.PreImg
         src={props.PreImageUrl?.toString()}
-        className={
-          props.isNewImageUploaded || props.item?.imageUrl ? "uploaded" : "none"
-        }
+        className={props.localImg || props.item?.imageUrl ? "uploaded" : "none"}
       />
-    </U.Upload>
+    </U.UploadWrapper>
   );
 }

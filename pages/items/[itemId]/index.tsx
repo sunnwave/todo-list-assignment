@@ -1,24 +1,11 @@
 import Head from "next/head";
 import TodoDetail from "../../../src/components/units/detail/TodoDetail.container";
 import Header from "../../../src/components/units/header/Header.container";
-import TodoName from "../../../src/components/units/todo_name/TodoName.container";
+
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { BASE_URL } from "../../../src/commons/api/api";
-import axios from "axios";
 
 export default function DetailPage() {
   const router = useRouter();
-  // const [item, setItem] = useState();
-
-  // useEffect(() => {
-  //   if (!router.isReady) return;
-
-  //   axios.get(BASE_URL + `/${router.query.itemId}`).then((res) => {
-  //     setItem(res.data);
-  //     // if (res.data.imageUrl) setPreImageUrl(res.data.imageUrl);
-  //   });
-  // }, [router.isReady]);
 
   return (
     <>
@@ -32,8 +19,8 @@ export default function DetailPage() {
           rel="stylesheet"
         />
       </Head>
+
       <Header />
-      {/* <TodoName item={item} /> */}
       <TodoDetail />
     </>
   );

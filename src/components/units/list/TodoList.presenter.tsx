@@ -1,12 +1,12 @@
 import * as T from "./TodoList.styles";
-import { Ilist, ITodoListUIProps } from "../../../commons/types/types";
+import { IItem, ITodoListUIProps } from "../../../commons/types/types";
 import AddTodo from "../add/AddTodo.container";
 import Item from "../item/Item.container";
 import EmptyUI from "../empty/Emtpy.presenter";
 
 export default function TodoListUI(props: ITodoListUIProps) {
-  const todos: Ilist[] = [];
-  const dones: Ilist[] = [];
+  const todos: IItem[] = [];
+  const dones: IItem[] = [];
 
   //todo list들을 할 일과 완료한 일로 구분
   props.totalLists?.map((el) =>

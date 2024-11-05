@@ -4,30 +4,11 @@ import { useEffect, useState } from "react";
 
 export default function Header() {
   const router = useRouter();
-  // const [width, setWidth] = useState(
-  //   typeof window!=='undefined'?window.innerWidth:);
 
   const onClickLogo = () => {
     console.log("Logo Clicked");
     router.push(`/todo-list-assignment/`);
   };
 
-  // const handleResize = () => {
-  //   setWidth(window.innerWidth);
-
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", handleResize);
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-
-  return (
-    <HeaderUI
-      onClickLogo={onClickLogo}
-      // width={width}
-    />
-  );
+  return <HeaderUI onClickLogo={onClickLogo} />;
 }

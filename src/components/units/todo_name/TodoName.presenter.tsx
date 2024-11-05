@@ -3,7 +3,7 @@ import * as N from "./TodoName.styles";
 
 export default function TodoNameUI(props: ITodoNameUIProps) {
   return (
-    <N.List className={props.item?.isCompleted ? "done" : "todo"}>
+    <N.NameWrapper className={props.item?.isCompleted ? "done" : "todo"}>
       <N.TodoCheck
         type="checkbox"
         id="check"
@@ -17,6 +17,6 @@ export default function TodoNameUI(props: ITodoNameUIProps) {
         contentEditable
         onChange={props.onChangeNameInput}
       />
-    </N.List>
+    </N.NameWrapper>
   );
 }

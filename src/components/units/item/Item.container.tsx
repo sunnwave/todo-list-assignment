@@ -8,7 +8,7 @@ import { IItemProps } from "../../../commons/types/types";
 export default function Item(props: IItemProps) {
   const router = useRouter();
 
-  // 할 일 체크박스 클릭 이벤트 함수
+  // 할 일 체크박스 클릭 이벤트 함수. 클릭시 상태 변화
   const onClickCheck = (
     event: MouseEvent<HTMLDivElement>,
     isCompleted: boolean

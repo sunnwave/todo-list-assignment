@@ -1,26 +1,27 @@
 import * as D from "./TodoDetail.styles";
-import { ITodoDetailUIProps } from "./TodoDetail.types";
-import { prefix } from "../../../../next.config.mjs";
-import TodoName from "../todo_name/TodoName.container";
 import TodoNameUI from "../todo_name/TodoName.presenter";
 import UploadImageUI from "../image/UploadImage.presenter";
 import MemoUI from "../memo/Memo.presenter";
+import { ITodoDetailUIProps } from "../../../commons/types/types";
 
 export default function TodoDetailUI(props: ITodoDetailUIProps) {
   return (
     <D.Wrapper>
+      {/* 항목 이름 컴포넌트 */}
       <TodoNameUI
         item={props.item}
         onClickCheck={props.onClickCheck}
         onChangeNameInput={props.onChangeNameInput}
       />
       <D.ContentsWrapper>
+        {/* 이미지 업로드 컴포넌트 */}
         <UploadImageUI
           item={props.item}
           onChangeFile={props.onChangeFile}
           PreImageUrl={props.PreImageUrl}
-          isNewImageUploaded={props.isNewImageUploaded}
+          localImg={props.localImg}
         />
+        {/* 메모 컴포넌트 */}
         <MemoUI item={props.item} onChangeMemo={props.onChangeMemo} />
       </D.ContentsWrapper>
       <D.ButtonWrapper>
