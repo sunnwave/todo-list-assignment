@@ -51,14 +51,14 @@ export interface ITodoListUIProps {
   // onChangeAddTodo: (event: ChangeEvent<HTMLInputElement>) => void;
   // onKeyDownAddTodo: (event: KeyboardEvent<HTMLInputElement>) => void;
   // onClickAddButton: (event: MouseEvent<HTMLDivElement>) => void;
-  onClickList: (
-    event: MouseEvent<HTMLDivElement> | MouseEvent<HTMLLabelElement>
-  ) => void;
-  onChangeCheck: (event: ChangeEvent<HTMLInputElement>, key: string) => void;
-  onClickCheck: (
-    event: MouseEvent<HTMLDivElement>,
-    isCompleted: boolean
-  ) => void;
+  // onClickList: (
+  //   event: MouseEvent<HTMLDivElement> | MouseEvent<HTMLLabelElement>
+  // ) => void;
+  // onChangeCheck: (event: ChangeEvent<HTMLInputElement>, key: string) => void;
+  // onClickCheck: (
+  //   event: MouseEvent<HTMLDivElement>,
+  //   isCompleted: boolean
+  // ) => void;
 }
 
 export interface ITodoNameProps {
@@ -81,4 +81,19 @@ export interface IUploadImageUIProps {
 export interface IMemoUIProps {
   item?: IItem;
   onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+export interface IItemUIProps {
+  item: Ilist;
+  onClickCheck: (
+    event: MouseEvent<HTMLDivElement>,
+    isCompleted: boolean
+  ) => void;
+  onClickItem: (
+    event: MouseEvent<HTMLDivElement> | MouseEvent<HTMLLabelElement>
+  ) => void;
+}
+
+export interface IItemProps {
+  item: Ilist;
 }

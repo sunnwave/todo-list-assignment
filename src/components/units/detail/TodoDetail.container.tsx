@@ -106,7 +106,7 @@ export default function TodoDetail() {
     if (name) variables.name = name;
     if (memo) variables.memo = memo;
     if (responseUrl) variables.imageUrl = responseUrl;
-    // if (checkChanged) variables.isCompleted = isCompleted;
+    if (checkChanged) variables.isCompleted = isCompleted;
 
     axios.patch(BASE_URL + `/${router.query.itemId}`, variables).then((res) => {
       alert("수정되었습니다.");

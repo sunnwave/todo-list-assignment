@@ -23,72 +23,37 @@ export default function TodoList() {
     });
   }, []);
 
-  // const onChangeAddTodo = (event: ChangeEvent<HTMLInputElement>) => {
-  //   setAddTodo(event.target.value);
-  // };
-
-  // const onKeyDownAddTodo = (event: KeyboardEvent<HTMLInputElement>) => {
-  //   if (event.key === "Enter") {
-  //     if (!addTodo) {
-  //       alert("입력창에 할 일을 입력해주세요");
-  //     } else {
-  //       const data = {
-  //         name: addTodo,
-  //       };
-  //       axios.post(BASE_URL, data).then((res) => {
-  //         event.stopPropagation();
-  //         alert("새로운 할 일이 등록되었습니다.");
-  //         location.reload();
-  //       });
-  //     }
-  //   }
-  // };
-
-  // const onClickAddButton = (event: MouseEvent<HTMLDivElement>) => {
-  //   if (!addTodo) {
-  //     alert("입력창에 할 일을 입력해주세요");
-  //   } else {
-  //     const data = {
-  //       name: addTodo,
-  //     };
-  //     axios.post(BASE_URL, data).then((res) => {
-  //       alert("새로운 할 일이 등록되었습니다.");
+  // const onChangeCheck = (event: ChangeEvent<HTMLInputElement>, key: string) => {
+  //   const { id } = event.target as HTMLInputElement;
+  //   axios
+  //     .patch(BASE_URL + `/${key}`, {
+  //       isCompleted: event.target.checked,
+  //     })
+  //     .then((res) => {
   //       location.reload();
   //     });
-  //   }
   // };
 
-  const onChangeCheck = (event: ChangeEvent<HTMLInputElement>, key: string) => {
-    const { id } = event.target as HTMLInputElement;
-    axios
-      .patch(BASE_URL + `/${key}`, {
-        isCompleted: event.target.checked,
-      })
-      .then((res) => {
-        location.reload();
-      });
-  };
+  // const onClickItem = (
+  //   event: MouseEvent<HTMLDivElement> | MouseEvent<HTMLLabelElement>
+  // ) => {
+  //   const { id } = event.target as HTMLDivElement;
+  //   router.push(`/items/${id}`);
+  // };
 
-  const onClickList = (
-    event: MouseEvent<HTMLDivElement> | MouseEvent<HTMLLabelElement>
-  ) => {
-    const { id } = event.target as HTMLDivElement;
-    router.push(`/items/${id}`);
-  };
-
-  const onClickCheck = (
-    event: MouseEvent<HTMLDivElement>,
-    isCompleted: boolean
-  ) => {
-    const { id } = event.target as HTMLDivElement;
-    axios
-      .patch(BASE_URL + `/${id}`, {
-        isCompleted: !isCompleted,
-      })
-      .then((res) => {
-        location.reload();
-      });
-  };
+  // const onClickCheck = (
+  //   event: MouseEvent<HTMLDivElement>,
+  //   isCompleted: boolean
+  // ) => {
+  //   const { id } = event.target as HTMLDivElement;
+  //   axios
+  //     .patch(BASE_URL + `/${id}`, {
+  //       isCompleted: !isCompleted,
+  //     })
+  //     .then((res) => {
+  //       location.reload();
+  //     });
+  // };
 
   return (
     <>
@@ -98,9 +63,9 @@ export default function TodoList() {
         // onChangeAddTodo={onChangeAddTodo}
         // onKeyDownAddTodo={onKeyDownAddTodo}
         // onClickAddButton={onClickAddButton}
-        onClickList={onClickList}
-        onChangeCheck={onChangeCheck}
-        onClickCheck={onClickCheck}
+        // onClickItem={onClickItem}
+        // onChangeCheck={onChangeCheck}
+        // onClickCheck={onClickCheck}
       />
     </>
   );

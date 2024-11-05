@@ -14,6 +14,10 @@ export default function AddTodo(props: IAddTodoProps) {
 
   //엔터키를 이용해 할 일 등록
   const onKeyDownAddTodo = (event: KeyboardEvent<HTMLInputElement>) => {
+    //한글 입력 후 엔터를 누를 시에 이벤트가 두 번 발생하는 현상 방지
+    if (event.nativeEvent.isComposing) {
+      return;
+    }
     if (event.key === "Enter") {
       if (!addTodo) {
         alert("입력창에 할 일을 입력해주세요");

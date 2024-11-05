@@ -1,6 +1,8 @@
 import * as T from "./TodoList.styles";
 import { Ilist, ITodoListUIProps } from "../../../commons/types/types";
 import AddTodo from "../add/AddTodo.container";
+import ItemUI from "../item/Item.presenter";
+import Item from "../item/Item.container";
 
 export default function TodoListUI(props: ITodoListUIProps) {
   const todos: Ilist[] = [];
@@ -29,20 +31,12 @@ export default function TodoListUI(props: ITodoListUIProps) {
             // 할 일 목록이 존재할 때
             <div>
               {todos?.map((el) => (
-                <T.List className="todo" id={String(el.id)}>
-                  <T.TodoCheck
-                    className="todo"
-                    onClick={(e) => props.onClickCheck(e, el.isCompleted)}
-                    id={String(el.id)}
-                  ></T.TodoCheck>
-                  <T.Label
-                    className="todo"
-                    onClick={props.onClickList}
-                    id={String(el.id)}
-                  >
-                    {el.name}
-                  </T.Label>
-                </T.List>
+                <Item item={el} />
+                // <ItemUI
+                //   item={el}
+                //   onClickCheck={props.onClickCheck}
+                //   onClickList={props.onClickList}
+                // />
               ))}
             </div>
           )}
@@ -63,20 +57,12 @@ export default function TodoListUI(props: ITodoListUIProps) {
             // 한 일 목록이 존재할 때
             <div>
               {dones?.map((el) => (
-                <T.List className="done" id={String(el.id)}>
-                  <T.TodoCheck
-                    className="done"
-                    onClick={(e) => props.onClickCheck(e, el.isCompleted)}
-                    id={String(el.id)}
-                  ></T.TodoCheck>
-                  <T.Label
-                    className="done"
-                    onClick={props.onClickList}
-                    id={String(el.id)}
-                  >
-                    {el.name}
-                  </T.Label>
-                </T.List>
+                // <ItemUI
+                //   item={el}
+                //   onClickCheck={props.onClickCheck}
+                //   onClickList={props.onClickList}
+                // />
+                <Item item={el} />
               ))}
             </div>
           )}
