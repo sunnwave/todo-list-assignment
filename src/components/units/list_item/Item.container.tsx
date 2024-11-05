@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import ItemUI from "./Item.presenter";
 import { IItemProps } from "../../../commons/types/types";
 
+//할 일 목록 페이지에서 보여지는 할 일 or 완료한 일 컴포넌트
 export default function Item(props: IItemProps) {
   const router = useRouter();
 

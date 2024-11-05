@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { IItem } from "../../../commons/types/types";
 import { BASE_URL } from "../../../commons/api/api";
 
+//전체 목록 페이지 컴포넌트
 export default function TodoList() {
   const [totalLists, setTotalLists] = useState<IItem[]>([]);
 

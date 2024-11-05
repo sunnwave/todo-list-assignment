@@ -1,7 +1,7 @@
 import * as D from "./TodoDetail.styles";
-import TodoNameUI from "../todo_name/TodoName.presenter";
-import UploadImageUI from "../image/UploadImage.presenter";
-import MemoUI from "../memo/Memo.presenter";
+import TodoNameUI from "../detail_name/TodoName.presenter";
+import UploadImageUI from "../detail_image/UploadImage.presenter";
+import MemoUI from "../detail_memo/Memo.presenter";
 import { ITodoDetailUIProps } from "../../../commons/types/types";
 
 export default function TodoDetailUI(props: ITodoDetailUIProps) {

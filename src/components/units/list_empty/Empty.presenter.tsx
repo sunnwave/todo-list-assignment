@@ -1,6 +1,7 @@
 import { IEmptyUIProps } from "../../../commons/types/types";
 import * as E from "./Empty.styles";
 
+//할 일 or 완료 항목이 존재하지 않을 때. 빈 항목 컴포넌트
 export default function EmptyUI(props: IEmptyUIProps) {
   return (
     <E.EmptyWrapper>

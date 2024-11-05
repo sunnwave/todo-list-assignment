@@ -1,6 +1,7 @@
 import { IUploadImageUIProps } from "../../../commons/types/types";
 import * as U from "./UploadImage.styles";
 
+//이미지 업로드 컴포넌트
 export default function UploadImageUI(props: IUploadImageUIProps) {
   return (
     <U.UploadWrapper>

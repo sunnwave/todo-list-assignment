@@ -1,8 +1,8 @@
 import * as T from "./TodoList.styles";
 import { IItem, ITodoListUIProps } from "../../../commons/types/types";
-import AddTodo from "../add/AddTodo.container";
-import Item from "../item/Item.container";
-import EmptyUI from "../empty/Emtpy.presenter";
+import AddTodo from "../list_add/AddTodo.container";
+import Item from "../list_item/Item.container";
+import EmptyUI from "../list_empty/Empty.presenter";
 
 export default function TodoListUI(props: ITodoListUIProps) {
   const todos: IItem[] = [];

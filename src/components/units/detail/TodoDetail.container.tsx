@@ -5,6 +5,7 @@ import axios from "axios";
 import { BASE_URL, IMAGE_UPLOAD_URL } from "../../../commons/api/api";
 import { Ivariables } from "../../../commons/types/types";
 
+//할 일 상세페이지 컴포넌트
 export default function TodoDetail() {
   const router = useRouter();
 

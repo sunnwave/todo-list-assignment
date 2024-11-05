@@ -1,6 +1,7 @@
 import { ITodoNameUIProps } from "../../../commons/types/types";
 import * as N from "./TodoName.styles";
 
+// 할 일 상세 페이지의 할 일 이름 컴포넌트
 export default function TodoNameUI(props: ITodoNameUIProps) {
   return (
     <N.NameWrapper className={props.item?.isCompleted ? "done" : "todo"}>
