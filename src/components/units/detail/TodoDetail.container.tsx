@@ -2,6 +2,7 @@ import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import TodoDetailUI from "./TodoDetail.presenter";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { Ivariables } from "./TodoDetail.types";
 
 export default function TodoDetail() {
   const BASE_URL = "https://assignment-todolist-api.vercel.app/api/sun/items";
@@ -12,18 +13,18 @@ export default function TodoDetail() {
   const [checkChanged, setCheckChanged] = useState<boolean>(false);
   const [name, setName] = useState<string>();
   const [memo, setMemo] = useState<string>();
-  const [imageUrl, setImageUrl] = useState<string | ArrayBuffer | null>(
+  const [PreImageUrl, setPreImageUrl] = useState<string | ArrayBuffer | null>(
     "/todo-list-assignment/detail/img_icon.png"
   );
   const [localImg, setLocalImg] = useState<File>();
-  const [isImageUploaded, setIsImageUploaded] = useState<boolean>(false);
-  const [responseUrl, setResponseUrl] = useState<string>();
+  const [isNewImageUploaded, setIsNewImageUploaded] = useState<boolean>(false);
 
   useEffect(() => {
     if (!router.isReady) return;
 
     axios.get(BASE_URL + `/${router.query.itemId}`).then((res) => {
       setItem(res.data);
+      if (res.data.imageUrl) setPreImageUrl(res.data.imageUrl);
     });
   }, [router.isReady]);
 
@@ -39,11 +40,12 @@ export default function TodoDetail() {
 
   const onChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
     const maxSize = 5 * 1024 * 1024;
-    const checkEng = /[a-zA-Z]/;
+    const checkEng = /^[a-z|A-Z]+$/;
 
     if (event.target.files) {
       const file = event.target.files[0];
-      if (!checkEng.test(file?.name.split(".")[0])) {
+      const fileName = file?.name.split(".")[0];
+      if (!checkEng.test(fileName)) {
         alert("파일 이름이 영어인 이미지만 업로드 가능합니다");
       }
       if (file?.size > maxSize) {
@@ -55,8 +57,8 @@ export default function TodoDetail() {
         reader.readAsDataURL(file);
 
         reader.onload = () => {
-          setImageUrl(reader.result);
-          setIsImageUploaded(true);
+          setPreImageUrl(reader.result);
+          setIsNewImageUploaded(true);
         };
       }
     }
@@ -73,58 +75,28 @@ export default function TodoDetail() {
 
   const handleEditButton = () => {};
 
-  const uploadImg = () => {
+  const uploadImg = async () => {
     if (localImg) {
       const form = new FormData();
       form.append("image", localImg);
 
-      const response = axios
-        .post(
-          "https://assignment-todolist-api.vercel.app/api/sun/images/upload",
-          form,
-          {
-            headers: {
-              accept: "application/json",
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        )
-        .then((res) => {
-          setResponseUrl(res.data.url);
-        });
+      const response = await axios.post(
+        "https://assignment-todolist-api.vercel.app/api/sun/images/upload",
+        form,
+        {
+          headers: {
+            accept: "application/json",
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      return response.data.url;
     }
   };
 
-  const onClickEdit = (event: MouseEvent<HTMLButtonElement>) => {
-    interface Ivariables {
-      name?: string;
-      memo?: string;
-      imageUrl?: string;
-      isCompleted?: boolean;
-    }
+  const onClickEdit = async (event: MouseEvent<HTMLButtonElement>) => {
     const variables: Ivariables = {};
-    uploadImg();
-    // if (localImg) {
-    //   const form = new FormData();
-    //   form.append("image", localImg);
-
-    //   const response = axios
-    //     .post(
-    //       "https://assignment-todolist-api.vercel.app/api/sun/images/upload",
-    //       form,
-    //       {
-    //         headers: {
-    //           // ...form.getHeaders(),
-    //           accept: "application/json",
-    //           "Content-Type": "multipart/form-data",
-    //         },
-    //       }
-    //     )
-    //     .then((res) => {
-    //       console.log(res.data.url);
-    //       setResponseUrl(res.data.url);
-    //     });
-    // }
+    const responseUrl = await uploadImg();
 
     if (name) variables.name = name;
     if (memo) variables.memo = memo;
@@ -144,8 +116,8 @@ export default function TodoDetail() {
       onChangeNameInput={onChangeNameInput}
       onChangeFile={onChangeFile}
       onChangeMemo={onChangeMemo}
-      imageUrl={imageUrl}
-      isImageUploaded={isImageUploaded}
+      PreImageUrl={PreImageUrl}
+      isNewImageUploaded={isNewImageUploaded}
       onClickEdit={onClickEdit}
     />
   );

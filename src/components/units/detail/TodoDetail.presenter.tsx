@@ -24,7 +24,7 @@ export default function TodoDetailUI(props: ITodoDetailUIProps) {
         <D.Upload>
           <D.ImageInputLabel htmlFor="upload_img">
             <D.ImageEditIcon
-              className={props.isImageUploaded ? "uploaded" : "none"}
+              className={props.isNewImageUploaded ? "uploaded" : "none"}
             />
           </D.ImageInputLabel>
           <D.ImageInput
@@ -34,9 +34,12 @@ export default function TodoDetailUI(props: ITodoDetailUIProps) {
             id="upload_img"
           />
           <D.PreImg
-            src={props.imageUrl?.toString()}
-            // src="https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/TodoList/sun/1730641568355/btn.png"
-            className={props.isImageUploaded ? "uploaded" : "none"}
+            src={props.PreImageUrl?.toString()}
+            className={
+              props.isNewImageUploaded || props.item?.imageUrl
+                ? "uploaded"
+                : "none"
+            }
           />
         </D.Upload>
         <D.Memo>
