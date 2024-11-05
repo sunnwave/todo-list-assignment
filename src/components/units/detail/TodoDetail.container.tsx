@@ -3,15 +3,14 @@ import TodoDetailUI from "./TodoDetail.presenter";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { Ivariables } from "./TodoDetail.types";
+import { BASE_URL } from "../../../commons/api/api";
 
 export default function TodoDetail() {
-  const BASE_URL = "https://assignment-todolist-api.vercel.app/api/sun/items";
-
   const router = useRouter();
   const [item, setItem] = useState();
+  const [name, setName] = useState<string>();
   const [isCompleted, setIsCompleted] = useState<boolean>();
   const [checkChanged, setCheckChanged] = useState<boolean>(false);
-  const [name, setName] = useState<string>();
   const [memo, setMemo] = useState<string>();
   const [PreImageUrl, setPreImageUrl] = useState<string | ArrayBuffer | null>(
     "/todo-list-assignment/detail/img_icon.png"
@@ -107,7 +106,7 @@ export default function TodoDetail() {
     if (name) variables.name = name;
     if (memo) variables.memo = memo;
     if (responseUrl) variables.imageUrl = responseUrl;
-    if (checkChanged) variables.isCompleted = isCompleted;
+    // if (checkChanged) variables.isCompleted = isCompleted;
 
     axios.patch(BASE_URL + `/${router.query.itemId}`, variables).then((res) => {
       alert("수정되었습니다.");
@@ -118,8 +117,8 @@ export default function TodoDetail() {
     <TodoDetailUI
       item={item}
       onClickCheck={onClickCheck}
-      onClickDelete={onClickDelete}
       onChangeNameInput={onChangeNameInput}
+      onClickDelete={onClickDelete}
       onChangeFile={onChangeFile}
       onChangeMemo={onChangeMemo}
       onClickEdit={onClickEdit}

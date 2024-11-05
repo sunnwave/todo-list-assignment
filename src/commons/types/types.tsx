@@ -37,9 +37,9 @@ export interface ITodoDetailUIProps {
   item?: IItem;
   onClickCheck: (event: MouseEvent<HTMLInputElement>) => void;
   onChangeNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClickDelete: (event: MouseEvent<HTMLButtonElement>) => void;
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  onClickDelete: (event: MouseEvent<HTMLButtonElement>) => void;
   onClickEdit: (event: MouseEvent<HTMLButtonElement>) => void;
   PreImageUrl: string | ArrayBuffer | null;
   isNewImageUploaded: boolean;
@@ -59,4 +59,26 @@ export interface ITodoListUIProps {
     event: MouseEvent<HTMLDivElement>,
     isCompleted: boolean
   ) => void;
+}
+
+export interface ITodoNameProps {
+  item?: IItem;
+}
+
+export interface ITodoNameUIProps {
+  item?: IItem;
+  onClickCheck: (event: MouseEvent<HTMLInputElement>) => void;
+  onChangeNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface IUploadImageUIProps {
+  item?: IItem;
+  onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
+  PreImageUrl: string | ArrayBuffer | null;
+  isNewImageUploaded: boolean;
+}
+
+export interface IMemoUIProps {
+  item?: IItem;
+  onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }

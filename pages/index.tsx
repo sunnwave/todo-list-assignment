@@ -10,16 +10,16 @@ import axios from "axios";
 import { BASE_URL } from "../src/commons/api/api";
 
 export default function Home() {
-  const router = useRouter();
-  const [totalLists, setTotalLists] = useState<Ilist[]>([]);
-  // const [addTodo, setAddTodo] = useState("");
   // const router = useRouter();
+  // const [totalLists, setTotalLists] = useState<Ilist[]>([]);
+  // // const [addTodo, setAddTodo] = useState("");
+  // // const router = useRouter();
 
-  useEffect(() => {
-    axios.get(BASE_URL).then((res) => {
-      setTotalLists(res.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(BASE_URL).then((res) => {
+  //     setTotalLists(res.data);
+  //   });
+  // }, []);
 
   return (
     <>
@@ -34,7 +34,6 @@ export default function Home() {
         />
       </Head>
       <Header />
-      <AddTodo totalLists={totalLists} />
       <TodoList />
     </>
   );

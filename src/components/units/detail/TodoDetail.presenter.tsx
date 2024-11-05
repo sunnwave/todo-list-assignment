@@ -1,58 +1,27 @@
 import * as D from "./TodoDetail.styles";
 import { ITodoDetailUIProps } from "./TodoDetail.types";
 import { prefix } from "../../../../next.config.mjs";
+import TodoName from "../todo_name/TodoName.container";
+import TodoNameUI from "../todo_name/TodoName.presenter";
+import UploadImageUI from "../image/UploadImage.presenter";
+import MemoUI from "../memo/Memo.presenter";
 
 export default function TodoDetailUI(props: ITodoDetailUIProps) {
   return (
     <D.Wrapper>
-      <D.List className={props.item?.isCompleted ? "done" : "todo"}>
-        <D.TodoCheck
-          type="checkbox"
-          id="check"
-          defaultChecked={props.item?.isCompleted}
-          contentEditable
-          onClick={props.onClickCheck}
-        />
-        <D.LabelForCheckbox htmlFor="check"></D.LabelForCheckbox>
-        <D.NameInput
-          defaultValue={props.item?.name}
-          contentEditable
-          onChange={props.onChangeNameInput}
-        />
-      </D.List>
+      <TodoNameUI
+        item={props.item}
+        onClickCheck={props.onClickCheck}
+        onChangeNameInput={props.onChangeNameInput}
+      />
       <D.ContentsWrapper>
-        <D.Upload>
-          <D.ImageInputLabel htmlFor="upload_img">
-            <D.ImageEditIcon
-              className={
-                props.isNewImageUploaded || props.item?.imageUrl
-                  ? "uploaded"
-                  : "none"
-              }
-            />
-          </D.ImageInputLabel>
-          <D.ImageInput
-            type="file"
-            accept="image/*"
-            onChange={props.onChangeFile}
-            id="upload_img"
-          />
-          <D.PreImg
-            src={props.PreImageUrl?.toString()}
-            className={
-              props.isNewImageUploaded || props.item?.imageUrl
-                ? "uploaded"
-                : "none"
-            }
-          />
-        </D.Upload>
-        <D.Memo>
-          <D.MemoLabel>Memo</D.MemoLabel>
-          <D.MemoContents
-            defaultValue={props.item?.memo}
-            onChange={props.onChangeMemo}
-          ></D.MemoContents>
-        </D.Memo>
+        <UploadImageUI
+          item={props.item}
+          onChangeFile={props.onChangeFile}
+          PreImageUrl={props.PreImageUrl}
+          isNewImageUploaded={props.isNewImageUploaded}
+        />
+        <MemoUI item={props.item} onChangeMemo={props.onChangeMemo} />
       </D.ContentsWrapper>
       <D.ButtonWrapper>
         <D.Button
