@@ -18,6 +18,7 @@ export default function TodoDetail() {
   );
   const [localImg, setLocalImg] = useState<File>();
   const [isNewImageUploaded, setIsNewImageUploaded] = useState<boolean>(false);
+  const [isTodoChanged, setIsTodoChanged] = useState<boolean>(false);
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -32,10 +33,12 @@ export default function TodoDetail() {
     const { checked } = event.target as HTMLInputElement;
     setIsCompleted(checked);
     setCheckChanged(true);
+    setIsTodoChanged(true);
   };
 
   const onChangeNameInput = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
+    setIsTodoChanged(true);
   };
 
   const onChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
@@ -59,13 +62,16 @@ export default function TodoDetail() {
         reader.onload = () => {
           setPreImageUrl(reader.result);
           setIsNewImageUploaded(true);
+          setIsTodoChanged(true);
         };
       }
     }
   };
   const onChangeMemo = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setMemo(event.target.value);
+    setIsTodoChanged(true);
   };
+
   const onClickDelete = (event: MouseEvent<HTMLButtonElement>) => {
     axios.delete(BASE_URL + `/${router.query.itemId}`).then((res) => {
       alert("삭제되었습니다.");
@@ -116,9 +122,10 @@ export default function TodoDetail() {
       onChangeNameInput={onChangeNameInput}
       onChangeFile={onChangeFile}
       onChangeMemo={onChangeMemo}
+      onClickEdit={onClickEdit}
       PreImageUrl={PreImageUrl}
       isNewImageUploaded={isNewImageUploaded}
-      onClickEdit={onClickEdit}
+      isTodoChanged={isTodoChanged}
     />
   );
 }

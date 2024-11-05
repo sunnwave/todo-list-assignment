@@ -22,8 +22,9 @@ export interface ITodoDetailUIProps {
   onChangeNameInput: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeMemo: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  PreImageUrl: string | ArrayBuffer | null;
-  isNewImageUploaded: boolean;
   onClickDelete: (event: MouseEvent<HTMLButtonElement>) => void;
   onClickEdit: (event: MouseEvent<HTMLButtonElement>) => void;
+  PreImageUrl: string | ArrayBuffer | null;
+  isNewImageUploaded: boolean;
+  isTodoChanged: boolean;
 }

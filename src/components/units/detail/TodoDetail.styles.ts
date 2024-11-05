@@ -152,7 +152,7 @@ right:16px;
 &.none{
   background: #E2E8F0;
   border:none;
-  background-image:url('/todo-list-assignment/detail/upload_button.png');
+  background-image:url('/todo-list-assignment/detail/upload_icon.png');
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -254,7 +254,7 @@ margin-top: 24px;
   justify-content:center;
 }
 @media (min-width:744px) and (max-width:1199px){
- justify-content:center;
+  justify-content:center;
 }
 @media (min-width: 1200px){
   justify-content: flex-end;
@@ -279,28 +279,31 @@ align-items:center;
 justify-content:center;
 cursor: pointer;
 
-&.update{
+&#update{
   background: #E2E8F0;
   color: #0F172A;
+  &.active{
+    background: #BEF264;
+  }
 }
 
-&.delete{
+&#delete{
   background: #F43F5E;
   color: #FFFFFF;
 }
 
 @media screen and (max-width:743px){
-  &.update{
+  &#update{
   margin-right: 7px;
   }
 }
 @media (min-width:744px) and (max-width:1199px){
-  &.update{
+  &#update{
   margin-right: 16px;
   }
 }
 @media (min-width: 1200px){
-  &.update{
+  &#update{
   margin-right: 16px;
 }
 }
