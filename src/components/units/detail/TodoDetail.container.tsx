@@ -133,7 +133,7 @@ export default function TodoDetail() {
 
     axios.patch(BASE_URL + `/${router.query.itemId}`, variables).then((res) => {
       alert("수정되었습니다.");
-      location.reload();
+      router.push(`/todo-list-assignment/`);
     });
   };
   return (
