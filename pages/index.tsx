@@ -3,9 +3,24 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Header from "../src/components/units/header/Header.container";
 import TodoList from "../src/components/units/list/TodoList.container";
+import AddTodo from "../src/components/units/add/AddTodo.container";
+import { useEffect, useState } from "react";
+import { Ilist } from "../src/commons/types/types";
+import axios from "axios";
+import { BASE_URL } from "../src/commons/api/api";
 
 export default function Home() {
   const router = useRouter();
+  const [totalLists, setTotalLists] = useState<Ilist[]>([]);
+  // const [addTodo, setAddTodo] = useState("");
+  // const router = useRouter();
+
+  useEffect(() => {
+    axios.get(BASE_URL).then((res) => {
+      setTotalLists(res.data);
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -19,6 +34,7 @@ export default function Home() {
         />
       </Head>
       <Header />
+      <AddTodo totalLists={totalLists} />
       <TodoList />
     </>
   );

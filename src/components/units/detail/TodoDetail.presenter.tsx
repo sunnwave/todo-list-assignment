@@ -24,7 +24,11 @@ export default function TodoDetailUI(props: ITodoDetailUIProps) {
         <D.Upload>
           <D.ImageInputLabel htmlFor="upload_img">
             <D.ImageEditIcon
-              className={props.isNewImageUploaded ? "uploaded" : "none"}
+              className={
+                props.isNewImageUploaded || props.item?.imageUrl
+                  ? "uploaded"
+                  : "none"
+              }
             />
           </D.ImageInputLabel>
           <D.ImageInput

@@ -8,13 +8,13 @@ import {
   useState,
 } from "react";
 import { useRouter } from "next/router";
-import { Ilist } from "./TodoList.types";
-
-const BASE_URL = "https://assignment-todolist-api.vercel.app/api/sun/items";
+import { Ilist } from "../../../commons/types/types";
+import { BASE_URL } from "../../../commons/api/api";
+import AddTodo from "../add/AddTodo.container";
 
 export default function TodoList() {
   const [totalLists, setTotalLists] = useState<Ilist[]>([]);
-  const [addTodo, setAddTodo] = useState("");
+  // const [addTodo, setAddTodo] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -23,40 +23,40 @@ export default function TodoList() {
     });
   }, []);
 
-  const onChangeAddTodo = (event: ChangeEvent<HTMLInputElement>) => {
-    setAddTodo(event.target.value);
-  };
+  // const onChangeAddTodo = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setAddTodo(event.target.value);
+  // };
 
-  const onKeyDownAddTodo = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      if (!addTodo) {
-        alert("입력창에 할 일을 입력해주세요");
-      } else {
-        const data = {
-          name: addTodo,
-        };
-        axios.post(BASE_URL, data).then((res) => {
-          event.stopPropagation();
-          alert("새로운 할 일이 등록되었습니다.");
-          location.reload();
-        });
-      }
-    }
-  };
+  // const onKeyDownAddTodo = (event: KeyboardEvent<HTMLInputElement>) => {
+  //   if (event.key === "Enter") {
+  //     if (!addTodo) {
+  //       alert("입력창에 할 일을 입력해주세요");
+  //     } else {
+  //       const data = {
+  //         name: addTodo,
+  //       };
+  //       axios.post(BASE_URL, data).then((res) => {
+  //         event.stopPropagation();
+  //         alert("새로운 할 일이 등록되었습니다.");
+  //         location.reload();
+  //       });
+  //     }
+  //   }
+  // };
 
-  const onClickAddButton = (event: MouseEvent<HTMLDivElement>) => {
-    if (!addTodo) {
-      alert("입력창에 할 일을 입력해주세요");
-    } else {
-      const data = {
-        name: addTodo,
-      };
-      axios.post(BASE_URL, data).then((res) => {
-        alert("새로운 할 일이 등록되었습니다.");
-        location.reload();
-      });
-    }
-  };
+  // const onClickAddButton = (event: MouseEvent<HTMLDivElement>) => {
+  //   if (!addTodo) {
+  //     alert("입력창에 할 일을 입력해주세요");
+  //   } else {
+  //     const data = {
+  //       name: addTodo,
+  //     };
+  //     axios.post(BASE_URL, data).then((res) => {
+  //       alert("새로운 할 일이 등록되었습니다.");
+  //       location.reload();
+  //     });
+  //   }
+  // };
 
   const onChangeCheck = (event: ChangeEvent<HTMLInputElement>, key: string) => {
     const { id } = event.target as HTMLInputElement;
@@ -91,14 +91,17 @@ export default function TodoList() {
   };
 
   return (
-    <TodoListUI
-      totalLists={totalLists}
-      onChangeAddTodo={onChangeAddTodo}
-      onKeyDownAddTodo={onKeyDownAddTodo}
-      onClickAddButton={onClickAddButton}
-      onClickList={onClickList}
-      onChangeCheck={onChangeCheck}
-      onClickCheck={onClickCheck}
-    />
+    <>
+      {/* <AddTodo totalLists={totalLists} /> */}
+      <TodoListUI
+        totalLists={totalLists}
+        // onChangeAddTodo={onChangeAddTodo}
+        // onKeyDownAddTodo={onKeyDownAddTodo}
+        // onClickAddButton={onClickAddButton}
+        onClickList={onClickList}
+        onChangeCheck={onChangeCheck}
+        onClickCheck={onClickCheck}
+      />
+    </>
   );
 }
