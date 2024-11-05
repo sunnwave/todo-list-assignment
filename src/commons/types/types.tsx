@@ -97,3 +97,7 @@ export interface IItemUIProps {
 export interface IItemProps {
   item: Ilist;
 }
+
+export interface IEmptyUIProps {
+  isCompleted: boolean;
+}

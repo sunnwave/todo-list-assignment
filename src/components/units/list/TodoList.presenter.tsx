@@ -1,67 +1,49 @@
 import * as T from "./TodoList.styles";
 import { Ilist, ITodoListUIProps } from "../../../commons/types/types";
 import AddTodo from "../add/AddTodo.container";
-import ItemUI from "../item/Item.presenter";
 import Item from "../item/Item.container";
+import EmptyUI from "../empty/Emtpy.presenter";
 
 export default function TodoListUI(props: ITodoListUIProps) {
   const todos: Ilist[] = [];
   const dones: Ilist[] = [];
 
+  //todo list들을 할 일과 완료한 일로 구분
   props.totalLists?.map((el) =>
     el.isCompleted ? dones.push(el) : todos.push(el)
   );
 
   return (
     <T.Wrapper>
+      {/* 할 일 추가 컴포넌트 */}
       <AddTodo totalLists={props.totalLists} />
+      {/* todo list 부분 */}
       <T.ListContainer>
+        {/* 할 일 부분 */}
         <T.ListWrapper className="todo">
           <T.TodoTitle src="/todo-list-assignment/list/todo.png" />
           {/* 할 일 목록이 비어있을 때 */}
           {todos?.length === 0 ? (
-            <T.EmptyWrapper>
-              <T.EmptyImg src="/todo-list-assignment/list/todo_char.png" />
-              <T.EmptyLabel>
-                할 일이 없어요. <br />
-                TODO를 새롭게 추가해주세요!
-              </T.EmptyLabel>
-            </T.EmptyWrapper>
+            <EmptyUI isCompleted={false} />
           ) : (
             // 할 일 목록이 존재할 때
             <div>
               {todos?.map((el) => (
                 <Item item={el} />
-                // <ItemUI
-                //   item={el}
-                //   onClickCheck={props.onClickCheck}
-                //   onClickList={props.onClickList}
-                // />
               ))}
             </div>
           )}
         </T.ListWrapper>
+        {/* 완료한 일 부분*/}
         <T.ListWrapper className="done">
           <T.DoneTitle src="/todo-list-assignment/list/done.png" />
           {dones?.length === 0 ? (
-            // 한 일 목록이 비었을 때
-            <T.EmptyWrapper>
-              <T.EmptyImg src="/todo-list-assignment/list/done_char.png" />
-              <T.EmptyLabel>
-                아직 다 한 일이 없어요.
-                <br />
-                해야 할 일을 체크해보세요!
-              </T.EmptyLabel>
-            </T.EmptyWrapper>
+            // 완료한 일 목록이 비었을 때
+            <EmptyUI isCompleted={true} />
           ) : (
-            // 한 일 목록이 존재할 때
+            // 완료한 일이 존재할 때
             <div>
               {dones?.map((el) => (
-                // <ItemUI
-                //   item={el}
-                //   onClickCheck={props.onClickCheck}
-                //   onClickList={props.onClickList}
-                // />
                 <Item item={el} />
               ))}
             </div>
