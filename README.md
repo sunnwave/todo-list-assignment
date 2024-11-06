@@ -19,19 +19,32 @@ https://sunnwave.github.io/todo-list-assignment/
 - 각각 TODO 항목들의 체크박스 클릭 시 완료 상태를 변경한다.
 
 <center>
+
 <웹페이지 화면>
 
+</center>
+<p align="center">
+
 <img width="809" alt="스크린샷 2024-11-06 오전 11 19 44" src="https://github.com/user-attachments/assets/3d6fa69b-092f-4c64-ad39-6d05215c372d">
+</p>
+
+<center>
 
 <태블릿 화면>
 
+</center>
+<p align="center">
 <img width="405" alt="스크린샷 2024-11-06 오전 11 20 17" src="https://github.com/user-attachments/assets/67556086-904f-48ab-9a03-141a12088968">
 
+</p>
+
+<center>
 <모바일 화면>
-
-<img width="192" alt="스크린샷 2024-11-06 오전 11 20 39" src="https://github.com/user-attachments/assets/5ff1e740-a1ee-453b-8630-3c690b8a5f3b">
-
 </center>
+
+<p align="center">
+<img width="192" alt="스크린샷 2024-11-06 오전 11 20 39" src="https://github.com/user-attachments/assets/5ff1e740-a1ee-453b-8630-3c690b8a5f3b">
+</p>
 
 ### ✏️ 할 일 상세 페이지
 
@@ -43,17 +56,30 @@ https://sunnwave.github.io/todo-list-assignment/
 - 삭제하기 버튼 클릭시 해당 TODO가 삭제되고 할 일 목록 페이지로 이동한다.
 
 <center>
-
 <웹페이지 화면>
 
+</center>
+
+<p align="center">
 <img width="604" alt="스크린샷 2024-11-06 오전 11 22 59" src="https://github.com/user-attachments/assets/40fb5b96-c23b-445d-996e-c748f792ee54">
 
+</p>
+
+<center>
 <태블릿 화면>
 
+</center>
+
+<p align="center">
 <img width="378" alt="스크린샷 2024-11-06 오전 11 23 23" src="https://github.com/user-attachments/assets/d0b3341a-3247-4971-a8d0-6629197af6b0">
 
+</p>
+
+<center>
 <모바일 화면>
 
-<img width="192" alt="스크린샷 2024-11-06 오전 11 23 46" src="https://github.com/user-attachments/assets/fc2494ee-280d-4612-b093-7550fcd5a1b5">
-
 </center>
+
+<p align="center">
+<img width="192" alt="스크린샷 2024-11-06 오전 11 23 46" src="https://github.com/user-attachments/assets/fc2494ee-280d-4612-b093-7550fcd5a1b5">
+</p>
